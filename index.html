@@ -1,33 +1,23 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>Tyler Swartz Homepage</title>
 
 <style>
-    h1 {
-        font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-        font-size: xxx-large;
-        text-align: center;
-        text-shadow: rgb(0, 0, 0) 0.07em 0.03em 0.066em;
+    html, body {
+        margin: 0;
+        min-height: 100vh;
     }
 
     body {
-        font-family:sans-serif;
+        font-family: sans-serif;
         text-align: center;
-        text-shadow: rgb(0, 0, 0) 0.03em 0.03em 0.066em;
         color: rgb(67, 242, 255);
-        text-overflow: ellipsis;
-        background-repeat: no-repeat;
-        background-size: cover;
         background-color: black;
         animation: opening 1.7s ease;
-        margin: 0;
-    }
-
-    .container {
-        width: 80%;
-        max-width: 1200px;
-        margin: 0 auto;
     }
 
     @keyframes opening {
@@ -36,9 +26,50 @@
         }
     }
 
+    .container {
+        width: 80%;
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+
+    h1 {
+        font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+        font-size: xxx-large;
+        text-align: center;
+        text-shadow: black 0.07em 0.03em 0.066em;
+    }
+
+    p {
+        text-shadow: black 0.03em 0.03em 0.066em;
+    }
+
     .hr2 {
         font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
         font-size: medium;
+    }
+
+    .banner {
+        position: relative;
+        width: 100%;
+        height: 500px;
+        overflow: hidden;
+    }
+
+    .banner img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    .banner::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        height: 200px;
+        background: linear-gradient(to bottom, transparent, black);
+        z-index: 1;
     }
 
     .profile {
@@ -57,31 +88,21 @@
         display: flex;
         flex-wrap: wrap;
         justify-content: center;
-        gap: 10px;
+        gap: 15px;
+    }
+
+    .Album img {
+        width: 320px;
+        height: 310px;
+        object-fit: cover;
+        border-radius: 10%;
+        box-shadow: 0.1px 3px #5670ff;
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
     }
 
     .Album img:hover {
-        box-shadow: 0px 0px 20px rgba(3, 0, 0, 0.8);
-        border-radius: 10%;
+        box-shadow: 0 0 20px rgba(255, 255, 255, 0.8);
         transform: scale(1.05);
-    }
-
-    .banner {
-        position: relative;
-        width: 100%;
-        height: 500px;
-        overflow: hidden;
-    }
-
-    .banner::after {
-        content: "";
-        position: absolute;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        height: 200px;
-        background: linear-gradient(to bottom, transparent, rgb(0, 0, 0));
-        z-index: 1;
     }
 
     .faq {
@@ -93,7 +114,7 @@
         background: rgba(0, 0, 0, 0.4);
         margin: 10px;
         padding: 15px;
-        border: 1px solid rgb(255, 255, 255);
+        border: 1px solid white;
         border-radius: 10px;
     }
 
@@ -103,41 +124,51 @@
         font-size: large;
     }
 
-    .banner-text {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        z-index: 2;
-    }
-
-    .banner img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-    }
-
-    img {
+    .platforms img {
+        width: 100px;
         box-shadow: 0.1px 3px #5670ff;
+        border-radius: 15px;
+        margin: 10px;
+        transition: transform 0.2s ease;
+    }
+
+    .platforms img:hover {
+        transform: scale(1.1);
+    }
+
+    footer {
+        margin-top: 40px;
+        padding: 20px;
+    }
+
+    @media (max-width: 700px) {
+        .container {
+            width: 95%;
+        }
+
+        .banner {
+            height: 250px;
+        }
+
+        h1 {
+            font-size: xx-large;
+        }
+
+        .Album img {
+            width: 90%;
+            height: auto;
+        }
+
+        .profile {
+            width: 120px;
+            height: 120px;
+            margin-top: -60px;
+        }
     }
 </style>
-
 </head>
-<audio id="bgmusic" loop>
-    <source src="https://radio.loficafe.net/listen/chilling/radio.mp3" type="audio/mpeg">
-</audio>
 
-<script>
-const music = document.getElementById("bgmusic");
-music.volume = 0.35;
-
-document.addEventListener("click", () => {
-    music.play();
-}, { once: true });
-</script>
 <body>
-
-    
 
 <div class="container">
 
@@ -164,47 +195,43 @@ document.addEventListener("click", () => {
         My name is Tyler Swartz <small>(I prefer "ItzTyler!")</small>, I'm a musician that makes electronic and new age music.
         You can find my work on YouTube, Spotify, Apple Music, etc.
     </p>
-        <p class="hr2">
-        I took inspiration from The XX, a popular and famous band known for their song "Intro", They are the best in my opinion.
-    </p>
 
-            <p class="hr2">
-        I’ve collaborated on several projects, including Runzies!, an escape game where players race to outrun a relentless, closing wall.
+    <p class="hr2">
+        I took inspiration from The xx, a popular band known for their song "Intro". They are the best in my opinion.
     </p>
-
-    <br>
 
     <div class="gallery">
         <div class="Album">
             <a href="https://www.youtube.com/playlist?list=OLAK5uy_kd2LN_9eEF9cm7-lMGbEi_sZhC8cnbGUQ" target="_blank">
-                <img src="https://images.genius.com/300372e98024d9c17e3bfe63e900d7d7.512x512x1.jpg" alt="Album 1" width="320" height="310">
+                <img src="https://images.genius.com/300372e98024d9c17e3bfe63e900d7d7.512x512x1.jpg" alt="Album 1">
             </a>
 
             <a href="https://www.youtube.com/watch?v=q_BTnT6xWHc" target="_blank">
-                <img src="https://images.genius.com/7a99384146e102f5a8e8061bcf3236b0.512x512x1.jpg" alt="Album 2" width="320" height="310">
+                <img src="https://images.genius.com/7a99384146e102f5a8e8061bcf3236b0.512x512x1.jpg" alt="Album 2">
             </a>
 
             <a href="https://www.youtube.com/watch?v=IgdjCFsOre4&list=OLAK5uy_lz5qXtgwnHAWnEPWH6WPVTuoQ0eukLRJc" target="_blank">
-                <img src="https://images.genius.com/afc3497da523f716220294e03723d5bc.512x512x1.jpg" alt="Album 3" width="320" height="310">
+                <img src="https://images.genius.com/afc3497da523f716220294e03723d5bc.512x512x1.jpg" alt="Album 3">
             </a>
 
             <a href="https://www.youtube.com/playlist?list=OLAK5uy_ktwl1GyhUHLh27cj42t1578cHtQV50Et4&playnext=1&index=1" target="_blank">
-                <img src="https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/ec/da/3f/ecda3f91-bbfc-fabd-100d-4a9726112d3a/artwork.jpg/400x400bb.webp" alt="Album 4" width="320" height="310">
+                <img src="https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/ec/da/3f/ecda3f91-bbfc-fabd-100d-4a9726112d3a/artwork.jpg/400x400bb.webp" alt="Album 4">
             </a>
 
             <a href="https://www.youtube.com/watch?v=22JIRnpC13E&list=OLAK5uy_ljepVBfdkRwCuV0liNfA27cDVzJ1El948&index=2" target="_blank">
-                <img src="https://images.genius.com/259af4e6e0a4758f7dd680b5fb5a225e.300x300x1.jpg" alt="Album 5" width="320" height="310">
+                <img src="https://images.genius.com/259af4e6e0a4758f7dd680b5fb5a225e.300x300x1.jpg" alt="Album 5">
             </a>
         </div>
     </div>
 
     <br>
     <hr>
+
     <h1>FAQ</h1>
     <hr>
 
     <p class="hr2">
-        Are you wondering the answers to these questions? I will answer these questions for you.
+        Are you wondering the answers to these questions? I will answer them for you.
     </p>
 
     <div class="faq">
@@ -218,21 +245,21 @@ document.addEventListener("click", () => {
         <details>
             <summary>Do you have any contact info?</summary>
             <p class="hr2">
-                Not yet, I'll update this section once I get an email for you.
+                Not yet, I'll update this section once I get an email.
             </p>
         </details>
 
         <details>
             <summary>What record labels are you associated with?</summary>
             <p class="hr2">
-                I own two main records, ItzMusic! Records and WCOA Records, both don't have emails.
+                I own two main records, ItzMusic! Records and WCOA Records. Both do not have emails yet.
             </p>
         </details>
 
         <details>
             <summary>Can you do song requests?</summary>
             <p class="hr2">
-                I typically don't accept song requests, however if you are one of my friends, I'll consider making the song track in question.
+                I typically do not accept song requests, but if you are one of my friends, I might consider making the song.
             </p>
         </details>
     </div>
@@ -242,42 +269,43 @@ document.addEventListener("click", () => {
     <h1>Streaming Links / Platforms</h1>
     <hr>
 
-    <a href="https://www.youtube.com/@TylerSwartzMusic" target="_blank">
-        <img src="https://img.icons8.com/?size=256&id=108794&format=png" alt="YouTube" width="100">
-    </a>
+    <div class="platforms">
+        <a href="https://www.youtube.com/@TylerSwartzMusic" target="_blank">
+            <img src="https://img.icons8.com/?size=256&id=108794&format=png" alt="YouTube">
+        </a>
 
-    <a href="https://open.spotify.com/artist/1pM0LqAECjKZF9sKbXjdbh" target="_blank">
-        <img src="https://img.icons8.com/?size=256&id=63316&format=png" alt="Spotify" width="100">
-    </a>
+        <a href="https://open.spotify.com/artist/1pM0LqAECjKZF9sKbXjdbh" target="_blank">
+            <img src="https://img.icons8.com/?size=256&id=63316&format=png" alt="Spotify">
+        </a>
 
-    <a href="https://music.apple.com/us/artist/tyler-swartz/1862284962" target="_blank">
-        <img src="https://img.icons8.com/?size=256&id=81TSi6Gqk0tm&format=png" alt="Apple Music" width="100">
-    </a>
+        <a href="https://music.apple.com/us/artist/tyler-swartz/1862284962" target="_blank">
+            <img src="https://img.icons8.com/?size=256&id=81TSi6Gqk0tm&format=png" alt="Apple Music">
+        </a>
+    </div>
 
-</div>
+    <br>
+    <hr>
 
-<br>
-<hr>
-
-<h1>Unreleased Projects!</h1>
+    <h1>Unreleased Projects!</h1>
     <hr>
 
     <p class="hr2">
         I have extra files saved on my computer for several album covers that have not made it on my channel.
     </p>
+
     <div class="gallery">
         <div class="Album">
-            <a href="" target="_blank">
-                <img src="ANMP0059.jpg" alt="Album 1" width="320" height="310">
+            <a href="https://www.youtube.com/playlist?list=OLAK5uy_kd2LN_9eEF9cm7-lMGbEi_sZhC8cnbGUQ" target="_blank">
+                <img src="https://images.genius.com/300372e98024d9c17e3bfe63e900d7d7.512x512x1.jpg" alt="Unreleased Project 1">
             </a>
-
         </div>
     </div>
 
-<footer>
-    <h1>You reached the end ;)</h1>
-        <b>Credits to Lofi Cafe for the music!</b>
-</footer>
+    <footer>
+        <h1>You reached the end ;)</h1>
+    </footer>
+
+</div>
 
 </body>
 </html>
